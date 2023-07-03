@@ -123,28 +123,6 @@ def weather(city_name):
         print("Failed to retrieve weather data.")
         speak("Failed to retrieve weather data.")
 
-def unlock_system():
-    # Wait for the login screen to appear
-    time.sleep(5)
-    # Set the coordinates for the password input field
-    password_field_x = 500
-    password_field_y = 500
-    # Set the coordinates for the login button
-    login_button_x = 600
-    login_button_y = 600
-    # Enter the password
-    pyautogui.click(password_field_x, password_field_y)
-    speak('Say your secret word to unlock system...')
-    command = takecommand()
-    if command == 'killer':
-        pyautogui.typewrite("your_password")  # Replace "your_password" with the actual password
-    # Click the login button
-        pyautogui.click(login_button_x, login_button_y)
-    else:
-        speak('your secret word is incorrect,please check and try again')
-
-
-
 if __name__ == "__main__":
     wishMe()
     while True:
@@ -177,8 +155,6 @@ if __name__ == "__main__":
                 elif 'tell weather report of' in query:
                     city_name = query.replace('tell weather report of', '')
                     weather(city_name)
-                elif 'unlock system' in query:
-                    unlock_system()
             except Exception as e:
                 speak("Sorry, there was an error. Please try again.")
 
